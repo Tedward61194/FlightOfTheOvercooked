@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Flight of the Overcooked"
+run/main_scene="res://scenes/levels/Sandbox.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://images/icon.svg"
