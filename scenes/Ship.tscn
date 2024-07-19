@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4qfasfc1amme"]
+
+[node name="Ship" type="Node3D"]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="SubViewport" type="SubViewport" parent="BoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="BoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, -0.5, 11, 0.5)
+fov = 85.0

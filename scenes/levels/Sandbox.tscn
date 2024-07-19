@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://74khax2mlgtj"]
+[gd_scene load_steps=9 format=3 uid="uid://74khax2mlgtj"]
 
 [ext_resource type="Material" uid="uid://nvr6omkd544u" path="res://materials/basic/DarkGrey.tres" id="1_6i7kj"]
+[ext_resource type="Material" uid="uid://bsll3st46oftl" path="res://materials/basic/BlueGrey.tres" id="1_socqs"]
+[ext_resource type="Material" uid="uid://cnoyxc50w4f4g" path="res://materials/basic/MediumGrey.tres" id="3_ja0j7"]
+[ext_resource type="PackedScene" uid="uid://b4qfasfc1amme" path="res://scenes/Ship.tscn" id="4_o6cey"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h12o8"]
+material = ExtResource("1_socqs")
 
 [sub_resource type="BoxMesh" id="BoxMesh_oksbb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_11eh5"]
 material = ExtResource("1_6i7kj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3hmt"]
+material = ExtResource("3_ja0j7")
 
 [node name="Sandbox" type="Node"]
 
@@ -815,852 +822,908 @@ mesh = SubResource("BoxMesh_h12o8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 9)
 mesh = SubResource("BoxMesh_h12o8")
 
-[node name="WestWall" type="Node3D" parent="LevelGeometry"]
+[node name="Walls" type="Node" parent="LevelGeometry"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="WestWall" type="Node3D" parent="LevelGeometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 2)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 3)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 4)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 5)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 6)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 7)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 8)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 9)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 10)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 2)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 3)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 4)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 5)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 6)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 7)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 8)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 9)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 10)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 0)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 2)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 3)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 4)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 5)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 6)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 7)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 8)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 9)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/WestWall"]
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/Walls/WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 10)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="EastWall" type="Node3D" parent="LevelGeometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
+[node name="EastWall" type="Node3D" parent="LevelGeometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -0.5, -5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 2)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 3)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 4)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 5)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 6)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 7)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 8)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 9)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 10)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 2)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 3)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 4)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 5)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 6)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 7)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 8)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 9)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 10)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, -1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 0)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 1)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 2)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 3)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 4)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 5)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 6)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 7)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 8)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 9)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/EastWall"]
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/Walls/EastWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 10)
 mesh = SubResource("BoxMesh_oksbb")
 surface_material_override/0 = ExtResource("1_6i7kj")
 
-[node name="NorthWall" type="Node3D" parent="LevelGeometry"]
+[node name="NorthWall" type="Node3D" parent="LevelGeometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, -5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D37" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D38" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D39" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D40" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D41" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D42" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D43" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D44" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D45" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D46" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D47" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D48" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D49" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D50" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D51" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D52" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D53" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D54" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D55" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D56" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D57" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D58" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D59" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D59" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D60" type="MeshInstance3D" parent="LevelGeometry/NorthWall"]
+[node name="MeshInstance3D60" type="MeshInstance3D" parent="LevelGeometry/Walls/NorthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="SouthWall" type="Node3D" parent="LevelGeometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+[node name="SouthWall" type="Node3D" parent="LevelGeometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.5, 6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D37" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D38" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D39" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D40" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D41" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D42" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D43" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D44" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D45" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D46" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D47" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D48" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D49" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D50" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D51" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D52" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D53" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D54" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D55" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D56" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D57" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D58" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D59" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D59" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
 
-[node name="MeshInstance3D60" type="MeshInstance3D" parent="LevelGeometry/SouthWall"]
+[node name="MeshInstance3D60" type="MeshInstance3D" parent="LevelGeometry/Walls/SouthWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, -1)
 mesh = SubResource("BoxMesh_11eh5")
+
+[node name="Counters" type="Node" parent="LevelGeometry"]
+
+[node name="North Counter" type="Node3D" parent="LevelGeometry/Counters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="East Counter" type="Node3D" parent="LevelGeometry/Counters"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = SubResource("BoxMesh_d3hmt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0.005, 13, -5)
+
+[node name="Ship" parent="." instance=ExtResource("4_o6cey")]
+visible = false

@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvfeod7l0owyv"]
+
+[ext_resource type="Material" uid="uid://cky1ubsgjs5n4" path="res://materials/basic/PlayerBlue.tres" id="1_lua55"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mafk2"]
+material = ExtResource("1_lua55")
+
+[sub_resource type="BoxMesh" id="BoxMesh_i70lx"]
+material = ExtResource("1_lua55")
+size = Vector3(0.15, 0.15, 0.8)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8g0o"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Pivot"]
+layers = 2
+mesh = SubResource("CapsuleMesh_mafk2")
+
+[node name="Hand" type="Node3D" parent="Pivot/BodyMesh"]
+
+[node name="HandMesh" type="MeshInstance3D" parent="Pivot/BodyMesh/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, -0.45)
+layers = 2
+mesh = SubResource("BoxMesh_i70lx")
+skeleton = NodePath("../..")
+
+[node name="PickUpPosition" type="Node3D" parent="Pivot/BodyMesh/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.1)
+
+[node name="HandsReach" type="RayCast3D" parent="Pivot/BodyMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0, -1.5)
+collision_mask = 5
+
+[node name="FeetReach" type="RayCast3D" parent="Pivot/BodyMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+target_position = Vector3(0, 0, -1.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_e8g0o")

@@ -14,3 +14,8 @@ config/name="Flight of the Overcooked"
 run/main_scene="res://scenes/levels/Sandbox.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://images/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
