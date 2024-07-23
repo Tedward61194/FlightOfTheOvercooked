@@ -7,9 +7,9 @@ const SPEED := 5.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # ref
-@onready var pick_up_position := $BodyMesh/Hand/PickUpPosition
-@onready var hand_reach_ray := $BodyMesh/HandsReach
-@onready var feet_reach_ray := $BodyMesh/FeetReach
+@onready var pick_up_position := $Pivot/BodyMesh/Hand/PickUpPosition
+@onready var hand_reach_ray := $Pivot/BodyMesh/HandsReach
+@onready var feet_reach_ray := $Pivot/BodyMesh/FeetReach
 
 # logic
 var obj_in_hands : int = -1 # -1 is empty
@@ -23,19 +23,18 @@ func _physics_process(delta) -> void:
 	process_movement(delta)
 
 func _process(_delta):
-	pass
-	#check_hand_reach_ray()
+	check_hand_reach_ray()
 	
 func _input(_event):
 	if Input.is_action_just_pressed("PickUp"):
 		pass
-		#pick_up_put_down()
+		# TODO: pick_up_put_down()
 	elif Input.is_action_pressed("Interact"):
 		pass
-		#start_interact()
+		# TODO: start_interact()
 	elif Input.is_action_just_released("Interact"):
 		pass
-		#end_interact()
+		#TODO: end_interact()
 
 func process_movement(delta) -> void:
 	# Add the gravity
@@ -56,3 +55,18 @@ func process_movement(delta) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func check_hand_reach_ray():
+	# Look for hilightable node in front of player
+	# If found highlight it
+	# Update hand_looking_at
+	var col = hand_reach_ray.get_collider()
+	if col != hand_looking_at:
+		# looking at new target
+		if col and col.has_node("Highlightable"):
+			col.get_node("Highlightable").targeted = true
+		if hand_looking_at != null and hand_looking_at.has_node("Highlightable"):
+			# untarget previous object
+			hand_looking_at.get_node("Highlightable").targeted = false
+			# TODO: end_interact()
+		hand_looking_at = col

@@ -1,14 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://74khax2mlgtj"]
+[gd_scene load_steps=14 format=3 uid="uid://74khax2mlgtj"]
 
 [ext_resource type="Material" uid="uid://nvr6omkd544u" path="res://materials/basic/DarkGrey.tres" id="1_6i7kj"]
 [ext_resource type="Material" uid="uid://bsll3st46oftl" path="res://materials/basic/BlueGrey.tres" id="1_socqs"]
 [ext_resource type="Material" uid="uid://cnoyxc50w4f4g" path="res://materials/basic/MediumGrey.tres" id="3_ja0j7"]
 [ext_resource type="PackedScene" uid="uid://b4qfasfc1amme" path="res://scenes/Ship.tscn" id="4_o6cey"]
 [ext_resource type="PackedScene" uid="uid://bvfeod7l0owyv" path="res://scenes/Player.tscn" id="5_dy756"]
+[ext_resource type="PackedScene" uid="uid://boeiuxt0flgg" path="res://scenes/interactables/Missile_casing.tscn" id="6_51bgn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jcfm7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejdfi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nldmt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_supar"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d3hmt"]
 material = ExtResource("3_ja0j7")
@@ -39,7 +44,6 @@ mesh = SubResource("BoxMesh_jcfm7")
 [node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Walls/NorthWall/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Walls/NorthWall/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ejdfi")
 
 [node name="SouthWall" type="Node3D" parent="LevelGeometry/Walls"]
@@ -53,7 +57,6 @@ mesh = SubResource("BoxMesh_jcfm7")
 [node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Walls/SouthWall/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Walls/SouthWall/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ejdfi")
 
 [node name="WestWall" type="Node3D" parent="LevelGeometry/Walls"]
@@ -67,7 +70,6 @@ mesh = SubResource("BoxMesh_jcfm7")
 [node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Walls/WestWall/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Walls/WestWall/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ejdfi")
 
 [node name="EastWall" type="Node3D" parent="LevelGeometry/Walls"]
@@ -81,7 +83,6 @@ skeleton = NodePath("../../WestWall")
 [node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Walls/EastWall/MeshInstance3D2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Walls/EastWall/MeshInstance3D2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ejdfi")
 
 [node name="Counters" type="Node" parent="LevelGeometry"]
@@ -89,24 +90,15 @@ shape = SubResource("BoxShape3D_ejdfi")
 [node name="North Counter" type="Node3D" parent="LevelGeometry/Counters"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
-mesh = SubResource("BoxMesh_d3hmt")
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Counters/North Counter"]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nldmt")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Counters/North Counter/StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_supar")
 
 [node name="East Counter" type="Node3D" parent="LevelGeometry/Counters"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0.5, 0)
@@ -148,3 +140,6 @@ visible = false
 [node name="Player" parent="." instance=ExtResource("5_dy756")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 7
+
+[node name="MissileCasing" parent="." instance=ExtResource("6_51bgn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bw36tvrh1r7tl"]
+
+[ext_resource type="Shader" path="res://materials/shaders/Highlight.gdshader" id="1_57m0h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6pru"]
+render_priority = 0
+shader = ExtResource("1_57m0h")
+shader_parameter/strength = null
+
+[resource]
+next_pass = SubResource("ShaderMaterial_h6pru")
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)

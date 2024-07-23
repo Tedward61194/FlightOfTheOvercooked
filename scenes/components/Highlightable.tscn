@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://sv0432vtqv55"]
+
+[ext_resource type="Script" path="res://scripts/components/Highlightable.gd" id="1_nwcpw"]
+[ext_resource type="Material" uid="uid://bw36tvrh1r7tl" path="res://materials/basic/Invisable.tres" id="1_qojhm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ebfrm"]
+material = ExtResource("1_qojhm")
+
+[node name="Highlightable" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_ebfrm")
+script = ExtResource("1_nwcpw")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://boeiuxt0flgg"]
+
+[ext_resource type="PackedScene" uid="uid://cuktpayx3m1ck" path="res://assets/blender/Missile_Casing_1.blend" id="1_rkr5x"]
+[ext_resource type="PackedScene" uid="uid://sv0432vtqv55" path="res://scenes/components/Highlightable.tscn" id="2_d7766"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rdml6"]
+
+[node name="MissileCasing" type="RigidBody3D"]
+
+[node name="Missile_Casing_1" parent="." instance=ExtResource("1_rkr5x")]
+
+[node name="Highlightable" parent="." instance=ExtResource("2_d7766")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rdml6")
