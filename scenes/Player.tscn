@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvfeod7l0owyv"]
+[gd_scene load_steps=6 format=3 uid="uid://bvfeod7l0owyv"]
 
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_js4vf"]
 [ext_resource type="Material" uid="uid://cky1ubsgjs5n4" path="res://materials/basic/PlayerBlue.tres" id="1_lua55"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mafk2"]
@@ -9,11 +10,13 @@ material = ExtResource("1_lua55")
 material = ExtResource("1_lua55")
 size = Vector3(0.15, 0.15, 0.8)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8g0o"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4g2i"]
+size = Vector3(1, 1.7525, 1)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 5
+script = ExtResource("1_js4vf")
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -42,4 +45,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_e8g0o")
+shape = SubResource("BoxShape3D_f4g2i")
