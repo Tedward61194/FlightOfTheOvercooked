@@ -18,23 +18,26 @@ var hand_looking_at
 func _ready() -> void:
 	pass
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
+
 func _physics_process(delta) -> void:
 	process_movement(delta)
 
+
 func _process(_delta):
 	check_hand_reach_ray()
-	
+
+
 func _input(_event):
 	if Input.is_action_just_pressed("PickUp"):
-		pass
-		# TODO: pick_up_put_down()
+		pick_up_put_down()
 	elif Input.is_action_pressed("Interact"):
 		pass
 		# TODO: start_interact()
 	elif Input.is_action_just_released("Interact"):
 		pass
 		#TODO: end_interact()
+
 
 func process_movement(delta) -> void:
 	# Add the gravity
@@ -56,6 +59,7 @@ func process_movement(delta) -> void:
 
 	move_and_slide()
 
+
 func check_hand_reach_ray():
 	# Look for hilightable node in front of player
 	# If found highlight it
@@ -70,3 +74,20 @@ func check_hand_reach_ray():
 			hand_looking_at.get_node("Highlightable").targeted = false
 			# TODO: end_interact()
 		hand_looking_at = col
+
+
+func pick_up_put_down():
+	if obj_in_hands == -1: # Hands empty. Try pick up
+		if hand_looking_at != null and hand_looking_at.has_node("Pickupable"):
+			obj_in_hands = hand_looking_at.get_node("Pickupable").pickup(pick_up_position)
+	else: # Try put down
+		var col = feet_reach_ray.get_collider()
+		if col != null and col.has_node("PlacementSlot"):
+			var placement_slot = col.get_node("PlacementSlot")
+			var put_down = placement_slot.try_put_down(obj_in_hands)
+			if put_down:
+#					var picked_up_obj = pick_up_position.get_child(0)
+#				if picked_up_obj.has_node("AutoInteract"):
+#					picked_up_obj.get_node("AutoInteract").try_start_interact(placement_slot)
+				obj_in_hands = -1
+				pick_up_position.get_child(0).queue_free() # pickup method attached obj as child

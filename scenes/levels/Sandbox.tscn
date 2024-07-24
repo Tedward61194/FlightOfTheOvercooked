@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://74khax2mlgtj"]
+[gd_scene load_steps=11 format=3 uid="uid://74khax2mlgtj"]
 
 [ext_resource type="Material" uid="uid://nvr6omkd544u" path="res://materials/basic/DarkGrey.tres" id="1_6i7kj"]
 [ext_resource type="Material" uid="uid://bsll3st46oftl" path="res://materials/basic/BlueGrey.tres" id="1_socqs"]
-[ext_resource type="Material" uid="uid://cnoyxc50w4f4g" path="res://materials/basic/MediumGrey.tres" id="3_ja0j7"]
+[ext_resource type="PackedScene" uid="uid://devmjsbk4l4s5" path="res://scenes/level_blocks/Counters/Counter.tscn" id="2_nwun8"]
 [ext_resource type="PackedScene" uid="uid://b4qfasfc1amme" path="res://scenes/Ship.tscn" id="4_o6cey"]
 [ext_resource type="PackedScene" uid="uid://bvfeod7l0owyv" path="res://scenes/Player.tscn" id="5_dy756"]
 [ext_resource type="PackedScene" uid="uid://boeiuxt0flgg" path="res://scenes/interactables/Missile_casing.tscn" id="6_51bgn"]
@@ -10,13 +10,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_jcfm7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejdfi"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nldmt"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_supar"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_d3hmt"]
-material = ExtResource("3_ja0j7")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_461yw"]
 material = ExtResource("1_socqs")
@@ -90,37 +83,36 @@ shape = SubResource("BoxShape3D_ejdfi")
 [node name="North Counter" type="Node3D" parent="LevelGeometry/Counters"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Counters/North Counter"]
+[node name="Counter" parent="LevelGeometry/Counters/North Counter" instance=ExtResource("2_nwun8")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Counters/North Counter/StaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_nldmt")
+[node name="Counter2" parent="LevelGeometry/Counters/North Counter" instance=ExtResource("2_nwun8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Counters/North Counter/StaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_supar")
+[node name="Counter3" parent="LevelGeometry/Counters/North Counter" instance=ExtResource("2_nwun8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Counter4" parent="LevelGeometry/Counters/North Counter" instance=ExtResource("2_nwun8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Counter5" parent="LevelGeometry/Counters/North Counter" instance=ExtResource("2_nwun8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="East Counter" type="Node3D" parent="LevelGeometry/Counters"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
-mesh = SubResource("BoxMesh_d3hmt")
+[node name="Counter" parent="LevelGeometry/Counters/East Counter" instance=ExtResource("2_nwun8")]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+[node name="Counter2" parent="LevelGeometry/Counters/East Counter" instance=ExtResource("2_nwun8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+[node name="Counter3" parent="LevelGeometry/Counters/East Counter" instance=ExtResource("2_nwun8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+[node name="Counter4" parent="LevelGeometry/Counters/East Counter" instance=ExtResource("2_nwun8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="LevelGeometry/Counters/East Counter"]
+[node name="Counter5" parent="LevelGeometry/Counters/East Counter" instance=ExtResource("2_nwun8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-mesh = SubResource("BoxMesh_d3hmt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry"]
 mesh = SubResource("PlaneMesh_461yw")
@@ -142,4 +134,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 7
 
 [node name="MissileCasing" parent="." instance=ExtResource("6_51bgn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -5)

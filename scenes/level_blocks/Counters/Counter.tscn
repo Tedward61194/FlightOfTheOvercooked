@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://devmjsbk4l4s5"]
+
+[ext_resource type="Material" uid="uid://cnoyxc50w4f4g" path="res://materials/basic/MediumGrey.tres" id="1_tf4aj"]
+[ext_resource type="PackedScene" uid="uid://dc4xv35kw5k1t" path="res://scenes/components/PlacementSlot.tscn" id="2_4a1yo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_72vpl"]
+material = ExtResource("1_tf4aj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjbve"]
+
+[node name="Counter" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_72vpl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bjbve")
+
+[node name="PlacementSlot" parent="." instance=ExtResource("2_4a1yo")]

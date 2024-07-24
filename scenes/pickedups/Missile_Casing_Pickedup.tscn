@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckiqtrugw56bv"]
+
+[ext_resource type="PackedScene" uid="uid://cuktpayx3m1ck" path="res://assets/blender/Missile_Casing_1.blend" id="1_5r28f"]
+
+[node name="MissileCasingPickedup" type="Node3D"]
+
+[node name="Missile_Casing_1" parent="." instance=ExtResource("1_5r28f")]

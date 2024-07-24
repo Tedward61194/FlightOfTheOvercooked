@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc4xv35kw5k1t"]
+
+[ext_resource type="Script" path="res://scripts/components/PlacementSlot.gd" id="1_jqt5b"]
+
+[node name="PlacementSlot" type="Node3D"]
+script = ExtResource("1_jqt5b")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 4
